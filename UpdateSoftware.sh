@@ -2,7 +2,7 @@
 
 # homebrew
 echo "Checking homebrew packages..."
-brew update > /dev/null;
+sudo -u mowi6001 brew update > /dev/null;
 new_packages=$(brew outdated --quiet)
 num_packages=$(echo $new_packages | wc -w)
 
@@ -20,18 +20,18 @@ echo "Update Brew Packages? [y/n]"
 read answer
 if [ $answer = "y" ]
 	then
-	brew upgrade
-	brew update
+	sudo -u mowi6001 brew upgrade
+	sudo -u mowi6001 brew update
 fi
 
 # macOS
 echo "Checking macOS updates..."
-softwareupdate -l
+sudo -u mowi6001 softwareupdate -l
 
 # Update Mac Software
 echo "Update Mac Software? [y/n]"
 read answer
 if [ answer = "y" ]
 	then
-	sudo softwareupdate -i -a
+	softwareupdate -i -a
 fi
